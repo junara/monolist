@@ -4,15 +4,24 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% binding.pry #TODO 商品画像 %>
-            <%= item.large_image %>
-            <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
+            <% #DONE 商品画像 %>
+            <% large_image_url = item.get('LargeImage/URL') %>
+            <% if large_image_url.present? %>
+              <%= image_tag( large_image_url , alt: item.get('ItemAttributes/Title')) %>
+            <% else %>
+              <%= image_tag( 'no-image.png', alt: item.get('ItemAttributes/Title')) %>
+            <% end %>
           </div>
         </div>
         <div class="detail">
           <p class="title">
             <% #TODO 商品タイトル %>
-            仮タイトル
+            <% amazon_title_name = item.get('ItemAttributes/Title') %>
+            <% if amazon_title_name.present? %>
+              <%= amazon_title_name %>
+            <% else %>
+              商品名不明
+            <% end %>
           </p>
         </div>
         <div class="action clearfix">

@@ -4,7 +4,8 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% #TODO 商品画像 %>
+            <% binding.pry #TODO 商品画像 %>
+            <%= item.large_image %>
             <%= image_tag("no-image.png" , alt: item.get('ItemAttributes/Title')) %>
           </div>
         </div>

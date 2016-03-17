@@ -17,11 +17,7 @@
           <p class="title">
             <% #DONE 商品タイトル %>
             <% amazon_title_name = item.get('ItemAttributes/Title') %>
-            <% if amazon_title_name.present? %>
               <%= amazon_title_name %>
-            <% else %>
-              商品名不明
-            <% end %>
           </p>
         </div>
         <div class="action clearfix">

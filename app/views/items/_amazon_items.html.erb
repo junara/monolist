@@ -20,7 +20,7 @@
           </p>
         </div>
         <div class="action clearfix">
-          <% if !current_user.want? %>
+          <% if !current_user.want?(item) %>
             <%= link_to '' , ownerships_path(asin: item.get('ASIN') , type: "Want") ,
                         :class => "want-#{item.get('ASIN')} btn-want btn btn-danger btn-sm want",
                         :remote => true,
@@ -32,7 +32,7 @@
                         :method => :delete %>
           <% end %>
           
-          <% if !current_user.have? %>
+          <% if !current_user.have?(item) %>
             <%= link_to '' , ownerships_path(asin: item.get('ASIN') , type: "Have") ,
                         :class => "have-#{item.get('ASIN')} btn-have btn btn-warning btn-sm have",
                         :remote => true,

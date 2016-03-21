@@ -57,6 +57,12 @@ class User < ActiveRecord::Base
   end
 
   def want?(item)
-    want_items.include?(item)
+
+#    if items.include?(item)  
+      want_items.include?(item)
+#    else
+#      want_items.find_by_asin(item.get('ASIN')).present?
+#    end  
+    
   end
 end

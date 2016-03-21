@@ -33,23 +33,26 @@ class User < ActiveRecord::Base
 
   ## TODO 実装
   def have(item)
-    haves.create(item_id: item.id , type: 'have')
-    binding.pry
+      haves.find_or_create_by(item_id: item.id , type: 'Have')
   end
 
   def unhave(item)
-    haves.find_by(item_id: item.id , type: 'have').destroy
+    haves.find_by(item_id: item.id , type: 'Have').destroy
   end
 
   def have?(item)
+    have_items.include?(item)
   end
 
   def want(item)
+        wants.find_or_create_by(item_id: item.id , type: 'Want')
   end
 
   def unwant(item)
+    wants.find_by(item_id: item.id , type: 'Want').destroy
   end
 
   def want?(item)
+    want_items.include?(item)
   end
 end

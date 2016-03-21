@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   has_many :followed_relationships, class_name:  "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :followed_users, through: :followed_relationships, source: :follower
 
+  has_many :ownerships , foreign_key: "user_id", dependent: :destroy
+  has_many :items, through: :ownerships
+  
+
   has_many :wants , class_name: "Want" , foreign_key: "user_id", dependent: :destroy
   has_many :want_items ,through: :wants, source: :item
 

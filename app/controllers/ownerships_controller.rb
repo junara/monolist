@@ -2,6 +2,7 @@ class OwnershipsController < ApplicationController
   before_action :logged_in_user
 
   def create
+    binding.pry
     if params[:asin]
       @item = Item.find_or_initialize_by(asin: params[:asin])
     else
